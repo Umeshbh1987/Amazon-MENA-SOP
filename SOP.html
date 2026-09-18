@@ -1,266 +1,554 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amazon Product Content & Data Entry SOP Knowledge Hub</title>
-    <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f6f9; margin: 0; padding: 20px; color: #333; }
-        .container { max-width: 950px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
-        h1 { color: #232f3e; border-bottom: 3px solid #febd69; padding-bottom: 12px; margin-top: 0; }
-        .subtitle { color: #555; margin-bottom: 25px; font-size: 15px; }
-        .search-box { width: 100%; padding: 14px; font-size: 16px; border: 2px solid #007185; border-radius: 6px; margin-bottom: 25px; box-sizing: border-box; outline: none; }
-        .search-box:focus { border-color: #c89411; box-shadow: 0 0 5px rgba(200, 148, 17, 0.5); }
-        .sop-section { margin-bottom: 15px; border: 1px solid #e0e0e0; border-radius: 6px; overflow: hidden; }
-        .sop-header { background: #f7f9fa; padding: 16px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 16px; color: #0f1111; }
-        .sop-header:hover { background: #eaeded; }
-        .sop-content { padding: 20px; display: none; background: #fff; line-height: 1.7; font-size: 14.5px; border-top: 1px solid #e0e0e0; }
-        .highlight { background-color: #fff3cd; font-weight: 600; padding: 2px 6px; border-radius: 3px; }
-        ul { margin-top: 5px; padding-left: 20px; }
-        li { margin-bottom: 10px; }
-        .query-box { background: #ebf8fa; border-left: 4px solid #007185; padding: 20px; border-radius: 4px; margin-top: 35px; }
-        .query-box h3 { margin-top: 0; color: #007185; }
-        button { background: #febd69; border: 1px solid #a88734; padding: 10px 22px; cursor: pointer; border-radius: 4px; font-weight: 600; font-size: 14px; }
-        button:hover { background: #f3a847; }
-        .code-block { background: #f0f2f2; padding: 12px; border-radius: 4px; font-family: monospace; font-size: 13px; margin: 10px 0; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amazon Master Catalog Compliance SOP Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-main: #0b0f19;
+      --bg-panel: #111827;
+      --bg-card: #1a2234;
+      --bg-card-hover: #1f293d;
+      --border-color: #26334d;
+      --accent-orange: #ff9900;
+      --accent-cyan: #06b6d4;
+      --accent-green: #10b981;
+      --accent-red: #ef4444;
+      --text-main: #f3f4f6;
+      --text-muted: #94a3b8;
+      --code-bg: #0d121f;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding-bottom: 60px;
+    }
+
+    /* TOP HEADER */
+    header {
+      background: var(--bg-panel);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-logo {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 20px;
+    }
+
+    .brand-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .brand-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .brand-sub span {
+      color: var(--accent-cyan);
+      font-weight: 600;
+    }
+
+    .badge-sop {
+      background: rgba(255, 153, 0, 0.15);
+      border: 1px solid var(--accent-orange);
+      color: var(--accent-orange);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    /* MAIN WRAPPER */
+    .main-container {
+      max-width: 1200px;
+      margin: 30px auto 0;
+      padding: 0 24px;
+    }
+
+    /* HERO BANNER */
+    .hero-banner {
+      background: linear-gradient(135deg, rgba(6, 182, 212, 0.1), rgba(255, 153, 0, 0.08));
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 30px;
+    }
+
+    .hero-banner h1 {
+      font-size: 22px;
+      font-weight: 800;
+      color: #38bdf8;
+      margin-bottom: 8px;
+    }
+
+    .hero-banner p {
+      font-size: 13.5px;
+      color: #cbd5e1;
+      max-width: 900px;
+    }
+
+    /* QUICK NAVIGATION PILLS */
+    .quick-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+
+    .nav-pill {
+      background: var(--bg-panel);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .nav-pill:hover {
+      background: var(--bg-card);
+      color: var(--accent-cyan);
+      border-color: var(--accent-cyan);
+    }
+
+    /* SOP SECTIONS */
+    .sop-section {
+      background: var(--bg-panel);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 26px;
+      margin-bottom: 26px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .section-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--accent-orange);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .tag-limit {
+      background: rgba(6, 182, 212, 0.15);
+      border: 1px solid var(--accent-cyan);
+      color: var(--accent-cyan);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    /* RULES GRID */
+    .rules-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .rule-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 14px;
+    }
+
+    .rule-card-title {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+      color: #38bdf8;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .rule-card ul {
+      padding-left: 18px;
+      font-size: 12.5px;
+      color: #cbd5e1;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .rule-card ul li strong {
+      color: #fff;
+    }
+
+    /* CODE BLOCKS & EXAMPLES */
+    .code-box {
+      background: var(--code-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 12px 14px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: #34d399;
+      line-height: 1.5;
+      overflow-x: auto;
+      margin-top: 10px;
+    }
+
+    .warning-box {
+      background: rgba(239, 68, 68, 0.12);
+      border: 1px solid var(--accent-red);
+      color: #fca5a5;
+      padding: 10px 14px;
+      border-radius: 6px;
+      font-size: 12px;
+      margin-top: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* TIER BADGES */
+    .tier-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+
+    .tier-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .tier-title {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .badge-tier1 {
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid var(--accent-green);
+      color: var(--accent-green);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    .badge-tier2 {
+      background: rgba(245, 158, 11, 0.15);
+      border: 1px solid #f59e0b;
+      color: #f59e0b;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    /* FOOTER */
+    footer {
+      max-width: 1200px;
+      margin: 40px auto 0;
+      padding: 20px 24px;
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+  </style>
 </head>
 <body>
 
-<div class="container">
-    <h1>Amazon Data Entry SOP & Knowledge Hub</h1>
-    <div class="subtitle">Standard Operating Procedure for Amazon Product Content Creation & Template Population</div>
-
-    <!-- Global Live Search Bar -->
-    <input type="text" id="searchInput" class="search-box" onkeyup="searchSOP()" placeholder="🔍 Search any query (e.g., ZA limit, Top 10, Bullets, Spare parts, Required attributes)...">
-
-    <div id="sopContainer">
-
-        <!-- Section 1 -->
-        <div class="sop-section">
-            <div class="sop-header" onclick="toggleSection(this)">1. Core Research, Client Data & Verification Rules <span>+</span></div>
-            <div class="sop-content">
-                <ul>
-                    <li><b>100% Client Data Utilization (Crucial First Step):</b> Carefully extract and use <b>ALL</b> basic information provided in the client’s data file. Do not miss or skip any data. Once your entry task is completed, perform a final cross-verification scan against the source file to ensure zero data omission.</li>
-                    <li><b>100% Strict Facts Only:</b> Every statement, attribute, feature, or specification must be a <b>verified product fact</b>. Never guess, estimate, or assume any detail (material, dimensions, weight, color, compatibility, durability).</li>
-                    <li><b>No Assumption Rule:</b> Do not add details simply because they are common in the product category (e.g., do not write <i>Dishwasher Safe</i>, <i>BPA Free</i>, or <i>Scratch Resistant</i> unless explicitly verified).</li>
-                    <li><b>Source Hierarchy (Priority Order):</b>
-                        <ol>
-                            <li>Client-provided data & high-res product images.</li>
-                            <li>Official Brand / Manufacturer website or documentation.</li>
-                            <li>Authorized distributors & reliable retailers.</li>
-                            <li>Amazon & established e-commerce platforms.</li>
-                        </ol>
-                    </li>
-                    <li><b>Exact Product Match:</b> Verify identifiers (Brand, Model, Barcode/EAN/UPC, ASIN, SKU, Variant, Pack Size) before extracting details.</li>
-                    <li><b>Different Pack Size Rule:</b> Core facts (ingredients, material) apply across pack sizes, but total pack weight, volume, piece count, and bundle contents <b>must</b> be independently verified.</li>
-                    <li><b>Missing Information:</b> If an attribute cannot be verified after deep research, strictly leave it <span class="highlight">BLANK</span>.</li>
-                </ul>
-            </div>
+  <!-- HEADER -->
+  <header>
+    <div class="header-container">
+      <div class="brand">
+        <div class="brand-logo">📖</div>
+        <div>
+          <div class="brand-title">Amazon Master Catalog Compliance SOP</div>
+          <div class="brand-sub">Catalog Creation & Quality Guidelines &bull; <span>Version 3.0</span></div>
         </div>
+      </div>
+      <div class="badge-sop">Strict Compliance Active</div>
+    </div>
+  </header>
 
-        <!-- Section 2 -->
-        <div class="sop-section">
-            <div class="sop-header" onclick="toggleSection(this)">2. Template Attribute Classification Rules <span>+</span></div>
-            <div class="sop-content">
-                <p>Every product template contains 4 types of attributes. Follow these specific execution rules:</p>
-                <ul>
-                    <li><b>Required Attributes:</b> Must be filled <b>100%</b> with verified facts.</li>
-                    <li><b>Conditional Required Attributes:</b> Must be filled <b>100%</b> based on product conditions/category triggers.</li>
-                    <li><b>Recommended Attributes:</b> Research and fill <b>as many as possible</b> using verified facts to achieve maximum listing quality.</li>
-                    <li><b>Optional Attributes:</b> Fill <b>only</b> details found during standard research. Do <b>not</b> spend extra time specifically digging for optional attributes.</li>
-                </ul>
-            </div>
-        </div>
+  <!-- MAIN CONTAINER -->
+  <div class="main-container">
 
-        <!-- Section 3 -->
-        <div class="sop-section">
-            <div class="sop-header" onclick="toggleSection(this)">3. Mandatory Top 10 Attributes Rule <span>+</span></div>
-            <div class="sop-content">
-                <ul>
-                    <li><b>Mandatory Rule:</b> Check the provided <b>Top 10 Attributes File</b> for the specific product type. The 10 attributes listed for that category <b>MUST be filled</b>, regardless of whether they appear as Required, Recommended, or Optional in the template.</li>
-                    <li><b>Exception Rule for Top 10 Only:</b> If a Top 10 attribute fact cannot be verified after deep research, a logical similar-product value may be added <b>only if genuinely applicable</b>.</li>
-                    <li><b>Validation Requirement:</b> Any unverified Top 10 value <span class="highlight">MUST be bolded and highlighted</span> in the attributes table and flagged in the <b>Validation Notes</b> section for manual review.</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Section 4 -->
-        <div class="sop-section">
-            <div class="sop-header" onclick="toggleSection(this)">4. Product Title Creation & Marketplace Limits <span>+</span></div>
-            <div class="sop-content">
-                <ul>
-                    <li><b>Standard Title Format:</b> <code>Brand + Model Name + Key Feature + Product Type + Size/Weight/Volume + Color</code></li>
-                    <li><b>Compatibility Format:</b> <code>Brand + Key Feature + Product Type + for + Compatible Devices + , Color</code></li>
-                    <li><b>Marketplace Limits:</b>
-                        <ul>
-                            <li><span class="highlight">ZA (South Africa Marketplace):</span> <b>UP TO 75 CHARACTERS MAXIMUM.</b> Title must be extremely concise while retaining essential product facts.</li>
-                            <li><b>Other Marketplaces (AE, SA, EG, TR, etc.):</b> Keep character limits as usual (standard limit up to 150–200 characters).</li>
-                        </ul>
-                    </li>
-                    <li><b>Rules:</b> Use verified facts only—no promotional fluff (<i>Best, Premium, Top, Guaranteed</i>). Do not repeat words. Include a comma before size or color where applicable.</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Section 5 -->
-        <div class="sop-section">
-            <div class="sop-header" onclick="toggleSection(this)">5. Bullet Points Creation & Structural Order <span>+</span></div>
-            <div class="sop-content">
-                <ul>
-                    <li><b>Quantity & Length:</b> Create 3 to 5 bullets. Keep each bullet concise, factual, readable, and scannable (20–150 characters).</li>
-                    <li><b>Customer-Oriented, NOT Marketing Text:</b> Focus on factual relevance (what it is, what it does, what it includes). Do NOT use marketing sales fluff (<i>"makes your life easy"</i>, <i>"unbeatable quality"</i>).</li>
-                    <li><span class="highlight">Small Spare Parts / Simple Components Exception:</span> For minor items like simple spare parts, basic auto parts, small electronic components, or simple accessories where limited detail exists, <b>creating even just 1 bullet point is acceptable</b>. Do not add artificial filler text.</li>
-                    <li><b>5-Point Structural Order:</b>
-                        <ol>
-                            <li><b>BP1: Main Product Benefit / Key Feature</b> → Why should I buy it?</li>
-                            <li><b>BP2: Core Feature / Functionality</b> → What does it do?</li>
-                            <li><b>BP3: Key Specifications</b> → What are its important specs? (Size, material, power, compatibility)</li>
-                            <li><b>BP4: Design / Convenience / Additional Features</b> → What additional features make it better/easier?</li>
-                            <li><b>BP5: Usage / Application / What's Included</b> → How/where do I use it or what do I get?</li>
-                        </ol>
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Section 6 -->
-        <div class="sop-section">
-            <div class="sop-header" onclick="toggleSection(this)">6. Product Description Rules <span>+</span></div>
-            <div class="sop-content">
-                <ul>
-                    <li><b>Character Limit:</b> Minimum 200 to Maximum 2,000 characters.</li>
-                    <li><b>3-Paragraph Structure:</b>
-                        <ul>
-                            <li><b>Paragraph 1 (Introduction):</b> Product type, main purpose, and primary function.</li>
-                            <li><b>Paragraph 2 (Features):</b> Verified materials, dimensions, capacity, design details, and included components.</li>
-                            <li><b>Paragraph 3 (Usage Context):</b> Practical, factual explanation of how the customer uses the product.</li>
-                        </ul>
-                    </li>
-                    <li><b>Rules:</b> Write naturally without keyword stuffing or repeating the title word-for-word. Do <b>not</b> copy-paste bullet points. Avoid unverified functional claims (e.g., do not claim <i>Dishwasher Safe</i> unless verified).</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Section 7 -->
-        <div class="sop-section">
-            <div class="sop-header" onclick="toggleSection(this)">7. Pre-Submission Quality Checklist <span>+</span></div>
-            <div class="sop-content">
-                <ul>
-                    <li>[ ] Have you fully utilized ALL basic information provided in the client file without missing anything?</li>
-                    <li>[ ] Have you done a final scan against the client/source data to cross-check for completeness?</li>
-                    <li>[ ] Are all information and claims based 100% on verified product facts?</li>
-                    <li>[ ] Are all Required and Conditional Required attributes filled 100%?</li>
-                    <li>[ ] Are all attributes from the Top 10 Attributes File filled (even if optional in template)?</li>
-                    <li>[ ] Are unverified Top 10 values bolded, highlighted, and listed under Validation Notes?</li>
-                    <li>[ ] Were Recommended attributes filled to maximum capacity without using guesswork?</li>
-                    <li>[ ] Is the Product Title within the target marketplace character limit? (<b>&lt;= 75 characters for ZA</b>; standard limit for AE, SA, EG, TR)</li>
-                    <li>[ ] Are Bullet Points short, easy to read, fact-based, customer-oriented, and free of marketing fluff?</li>
-                    <li>[ ] Are all promotional/marketing words (<i>Best, Premium, Superior, Perfect</i>) removed?</li>
-                    <li>[ ] Is the Product Description original, factual, well-structured, and between 200–2,000 characters?</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Section 8 -->
-        <div class="sop-section">
-            <div class="sop-header" onclick="toggleSection(this)">8. Required Final Output Presentation Structure <span>+</span></div>
-            <div class="sop-content">
-                <p>Submit your final output using this exact structure:</p>
-                <div class="code-block">
-Product Attributes<br><br>
-Attribute Name &nbsp;&nbsp;&nbsp;&nbsp; Value<br>
-Attribute 1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Verified Value<br>
-Attribute 2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Verified Value<br>
-Attribute 3 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>Validation Required Value</b><br>
-Attribute 4 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [BLANK]<br><br>
-Product Title<br>
-[Final Title]<br><br>
-Bullet Points<br>
-1. [Bullet Point 1]<br>
-2. [Bullet Point 2]<br>
-3. [Bullet Point 3]<br>
-4. [Bullet Point 4]<br>
-5. [Bullet Point 5]<br><br>
-Product Description<br>
-[Final Product Description]<br><br>
-Validation Notes<br>
-- Validation Required: [List any unverified Top 10 attributes or missing data issues here]<br>
-(If no issues, state: "No validation issues identified.")
-                </div>
-            </div>
-        </div>
-
+    <!-- HERO INTRO -->
+    <div class="hero-banner">
+      <h1>Standard Operating Procedure (SOP) Reference Guide</h1>
+      <p>
+        Yeh manual Amazon Global & MENA catalog content generation (Title, Description, Bullets, Generic Keywords) ke updated rules define karta hai. Listing creation ke time 100% facts verification aur regional limits mandatory hain.
+      </p>
     </div>
 
-    <!-- Query Submission Form -->
-    <div class="query-box">
-        <h3>❓ Unsure about a specific scenario? Submit your Query</h3>
-        <p>If you cannot find a solution in the SOP sections above, type your question below. The Team Lead will review and update the SOP Hub with the answer.</p>
-        <input type="text" id="userQuery" style="width:72%; padding:10px; font-size:14px; border:1px solid #ccc; border-radius:4px;" placeholder="Type your task issue or question here...">
-        <button onclick="submitQuery()">Submit Query</button>
+    <!-- QUICK JUMP PILLS -->
+    <div class="quick-nav">
+      <a href="#section-title" class="nav-pill">1. Product Title</a>
+      <a href="#section-desc" class="nav-pill">2. Product Description</a>
+      <a href="#section-bullets" class="nav-pill">3. Bullet Points (2-Tier System)</a>
+      <a href="#section-keywords" class="nav-pill">4. Generic Keywords</a>
+      <a href="#section-prohibited" class="nav-pill">5. Prohibitions & Policies</a>
     </div>
-</div>
 
-<script>
-    function toggleSection(header) {
-        var content = header.nextElementSibling;
-        if (content.style.display === "block") {
-            content.style.display = "none";
-            header.querySelector('span').innerText = "+";
-        } else {
-            content.style.display = "block";
-            header.querySelector('span').innerText = "-";
-        }
-    }
+    <!-- 1. PRODUCT TITLE -->
+    <div id="section-title" class="sop-section">
+      <div class="section-header">
+        <div class="section-title">
+          <span>🏷️ 1. Formatted Product Title</span>
+        </div>
+        <span class="tag-limit">Global: &le; 200 Chars | ZA: &le; 75 Chars</span>
+      </div>
 
-    function searchSOP() {
-        var input = document.getElementById('searchInput').value.toLowerCase();
-        var sections = document.querySelectorAll('.sop-section');
+      <div class="rules-grid">
+        <div class="rule-card">
+          <div class="rule-card-title">📌 Length & Regional Limits</div>
+          <ul>
+            <li><strong>Standard Marketplaces (AE, SA, EG, US):</strong> Maximum <b>200 characters</b> (including spaces).</li>
+            <li><strong>South Africa (ZA):</strong> Strictly <b>&le; 75 characters</b> total length.</li>
+            <li><strong>Title Case:</strong> Har word ka first letter capital hona chahiye (except standard articles/conjunctions).</li>
+          </ul>
+        </div>
 
-        sections.forEach(function(section) {
-            var text = section.innerText.toLowerCase();
-            if (text.includes(input)) {
-                section.style.display = "block";
-                section.querySelector('.sop-content').style.display = "block";
-                section.querySelector('.sop-header span').innerText = "-";
-            } else {
-                section.style.display = "none";
-            }
-        });
+        <div class="rule-card">
+          <div class="rule-card-title">🚫 Symbols & Repetition</div>
+          <ul>
+            <li><strong>Prohibited Characters:</strong> <code>! $ ? _ { } ^ ¬ ¦ —</code> strictly banned hain (unless brand name ka verified legal part ho).</li>
+            <li><strong>No Word Repetition:</strong> Same word <b>2 times se zyada</b> repeat nahi ho sakta (articles/prepositions excluded).</li>
+            <li><strong>Numerals Only:</strong> Numbers ko hamesha digits me likhein (e.g. <b>8</b>, not "eight").</li>
+          </ul>
+        </div>
 
-        if (input === "") {
-            sections.forEach(function(section) {
-                section.style.display = "block";
-                section.querySelector('.sop-content').style.display = "none";
-                section.querySelector('.sop-header span').innerText = "+";
-            });
-        }
-    }
+        <div class="rule-card">
+          <div class="rule-card-title">🎯 Structure Template</div>
+          <ul>
+            <li><strong>Title Formula:</strong> <code>[Brand] + [Model/Sub-brand] + [Key Feature] + [Product Type] + [Size/Weight/Color/Pack]</code>.</li>
+            <li><strong>Zero Fluff:</strong> "Best Seller", "Free Shipping", "100% Guarantee" jaise promotional words strictly prohibited hain.</li>
+          </ul>
+        </div>
+      </div>
 
-    function submitQuery() {
-        var q = document.getElementById('userQuery').value;
+      <div class="code-box">
+        <b>Compliant Example:</b> DEWALT TSTAK Deep Tool Box with Heavy Duty Wheels and Long Handle 23 L Capacity
+      </div>
+    </div>
 
-        if(q.trim() !== "") {
-            fetch('https://api.web3forms.com/submit', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    access_key: 'b7598ffd-b577-41f2-80bb-2fd55e313189', // Replace with Team Lead's free Web3Forms Access Key
-                    subject: '🚨 New Amazon SOP Query Submitted',
-                    message: q
-                })
-            }).then(response => {
-                alert("Your query has been submitted! The Team Lead has been notified via Email.");
-                document.getElementById('userQuery').value = "";
-            }).catch(error => {
-                alert("Something went wrong. Please try again.");
-            });
-        } else {
-            alert("Please type a question before submitting.");
-        }
-    }
-</script>
+    <!-- 2. PRODUCT DESCRIPTION -->
+    <div id="section-desc" class="sop-section">
+      <div class="section-header">
+        <div class="section-title">
+          <span>📝 2. Product Description</span>
+        </div>
+        <span class="tag-limit">1200 – 2000 Characters</span>
+      </div>
+
+      <div class="rules-grid">
+        <div class="rule-card">
+          <div class="rule-card-title">📄 Paragraph Format</div>
+          <ul>
+            <li><strong>Single Cohesive Paragraph:</strong> Poora description exactly <b>ONE continuous narrative paragraph</b> hona chahiye.</li>
+            <li><strong>No Lists / Breaks:</strong> Description ke andar koi bullet point, list ya line break nahi hona chahiye.</li>
+            <li><strong>Length Limit:</strong> Strictly <b>1200 se 2000 characters</b> ke beech hona zaroori hai.</li>
+          </ul>
+        </div>
+
+        <div class="rule-card">
+          <div class="rule-card-title">🎯 First Sentence Rule</div>
+          <ul>
+            <li><strong>Title Alignment:</strong> Pehla sentence generated title ke starting words se shuru hoga, specifically Product Type field tak.</li>
+            <li><strong>Brand/Model Control:</strong> Brand Name, Model Number aur Model Name sirf <b>starting</b> me aayenge; unhe beech ya aakhir me repeat na karein.</li>
+          </ul>
+        </div>
+
+        <div class="rule-card">
+          <div class="rule-card-title">🔍 Content & Tone</div>
+          <ul>
+            <li><strong>Quantitative Specs:</strong> Actual measurements ko subjective words se upar rakhein (e.g. <code>weighs 2.5 kg</code> instead of <code>lightweight</code>).</li>
+            <li><strong>Cover Details:</strong> Value proposition, applications/use cases, benefits, materials, wattage, capacity ko natural flow me weave karein.</li>
+            <li><strong>Zero Commercials:</strong> Shipping, warranty, branding ya seller logistics include na karein.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. BULLET POINTS -->
+    <div id="section-bullets" class="sop-section">
+      <div class="section-header">
+        <div class="section-title">
+          <span>⚡ 3. Bullet Points (2-Tier Classification System)</span>
+        </div>
+        <span class="tag-limit">&lt; 250 Chars Per Bullet | No Terminal Period</span>
+      </div>
+
+      <!-- TIER 1 -->
+      <div class="tier-card">
+        <div class="tier-header">
+          <div class="tier-title">Tier 1: Standard Products (Sufficient Data Available)</div>
+          <span class="badge-tier1">3 to 5 Bullets Required</span>
+        </div>
+        <ul style="padding-left: 18px; font-size: 12.5px; color: #cbd5e1; display:flex; flex-direction:column; gap:6px;">
+          <li><strong>Bullet Count:</strong> 3 se 5 distinct aur impactful bullets generate karein.</li>
+          <li><strong>Character Limit:</strong> Har bullet point strictly <b>250 characters se kam</b> hona chahiye.</li>
+          <li><strong>Formatting Structure:</strong> Bullet hamesha capitalized summary benefit header se shuru hoga, jiske baad hyphen (-) aayega.</li>
+          <li><strong>No Terminal Period:</strong> Bullet ke end me period (.) ya koi bhi terminal punctuation <b>NAHI</b> lagana hai.</li>
+          <li><strong>Distinct Topics:</strong> Top Feature, Key Benefit, Compatibility, Material/Build, Unique Selling Point ya Maintenance Tips cover karein.</li>
+        </ul>
+        <div class="code-box">
+          High Load Capacity - Carries up to 220 lbs of TSTAK modules, providing a heavy-duty solution for transporting large tool collections
+        </div>
+      </div>
+
+      <!-- TIER 2 -->
+      <div class="tier-card" style="margin-top: 14px;">
+        <div class="tier-header">
+          <div class="tier-title">Tier 2: Low-Info & Small Component Parts</div>
+          <span class="badge-tier2">1 Bullet Sufficient (Max 2 on Verified Data)</span>
+        </div>
+        <ul style="padding-left: 18px; font-size: 12.5px; color: #cbd5e1; display:flex; flex-direction:column; gap:6px;">
+          <li><strong>Applicable Items:</strong> Fasteners, nuts, bolts, washers, small electronic components, small tools, automotive spare parts jinki minimal specs hoti hain.</li>
+          <li><strong>Standard Rule:</strong> Aise products ke liye <b>EXACTLY 1 single high-impact bullet</b> hi sufficient hai jo core size, material grade aur compatibility bataye.</li>
+          <li><strong>Exception (2 Bullets):</strong> Agar verified website se solid, technical aur consider karne layak alag information milti hai, tabhi <b>2nd bullet</b> banayein; zabardasti fluff na jodein.</li>
+          <li><strong>No Terminal Period:</strong> End me period (.) nahi lagana hai.</li>
+        </ul>
+        <div class="code-box">
+          Corrosion Resistant Build - Manufactured from grade 304 stainless steel providing high tensile strength and rust prevention for outdoor fastener assemblies
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. GENERIC KEYWORDS -->
+    <div id="section-keywords" class="sop-section">
+      <div class="section-header">
+        <div class="section-title">
+          <span>🔑 4. Generic Backend Keywords</span>
+        </div>
+        <span class="tag-limit">8 – 12 Phrases | Semicolon (;) Separated</span>
+      </div>
+
+      <div class="rules-grid">
+        <div class="rule-card">
+          <div class="rule-card-title">📋 Structure & Count</div>
+          <ul>
+            <li><strong>Quantity:</strong> Exactly <b>8 to 12 keyword phrases</b> generate karein.</li>
+            <li><strong>Phrase Length:</strong> Har phrase <b>2 to 4 words</b> ka hona chahiye.</li>
+            <li><strong>Delimiter:</strong> Phrases ke beech hamesha semicolon (<code>;</code>) lagayein.</li>
+          </ul>
+        </div>
+
+        <div class="rule-card">
+          <div class="rule-card-title">🎯 Search Intent & Order</div>
+          <ul>
+            <li><strong>Mix:</strong> Broad categories aur specific attribute search terms ka balance rakhein.</li>
+            <li><strong>Arrangement:</strong> Keywords ko <b>broader-to-narrower</b> category sequence me arrange karein.</li>
+            <li><strong>Prohibitions:</strong> Brand names, ASINs, ya competitor brand names keyword phrases me allow nahi hain.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="code-box">
+        heavy duty tool box; mobile storage organizer; modular tool chest; rolling workshop carrier; rolling tool case; professional hardware chest; portable organizer container; stackable toolbox cart
+      </div>
+    </div>
+
+    <!-- 5. GENERAL POLICIES & WARNINGS -->
+    <div id="section-prohibited" class="sop-section">
+      <div class="section-header">
+        <div class="section-title">
+          <span>⚠️ 5. General Compliance & Prohibited Terms</span>
+        </div>
+        <span class="tag-limit" style="color:var(--accent-red); border-color:var(--accent-red); background:rgba(239,68,68,0.15);">Strict Policy</span>
+      </div>
+
+      <div class="rules-grid">
+        <div class="rule-card">
+          <div class="rule-card-title" style="color:var(--accent-red);">🚫 Banned Promotional Words</div>
+          <ul>
+            <li>Best Seller / Top Rated</li>
+            <li>100% Quality Guaranteed</li>
+            <li>Free Shipping / Fast Delivery</li>
+            <li>Lowest Price / Huge Discount</li>
+          </ul>
+        </div>
+
+        <div class="rule-card">
+          <div class="rule-card-title" style="color:var(--accent-red);">🚫 Banned Symbols & Characters</div>
+          <ul>
+            <li>Special Characters: <code>! $ ? _ { } ^ ¬ ¦ —</code></li>
+            <li>Intellectual Property Marks: <code>® ™ ©</code> (unless verified in brand name)</li>
+            <li>Emojis, decorative icons, ya full capital words (e.g. "NEW", "BUY NOW")</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="warning-box">
+        <span>⚠️</span> In rules ka violation hone par Amazon catalog team listing ko search-suppress ya ASIN freeze kar sakti hai. Hamesha factual aur measurable data hi include karein.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>Amazon MENA & Global Catalog AI Compliance &bull; Master Operations Standard</div>
+    <div>Strict Quality Assurance Active</div>
+  </footer>
 
 </body>
 </html>
